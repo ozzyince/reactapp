@@ -12,5 +12,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html'
     })
-  ]
+  ],
+  module: {
+    rules: [{
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      }
+    ]
+  }
 };
