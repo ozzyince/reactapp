@@ -1,12 +1,5 @@
-function component() {
-  let name = "Özgür İnce";
-  let action = "rock";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.js';
 
-  let element = document.createElement('div');
-
-  element.innerHTML = `Hello ${name}, ready to ${action}?`;
-
-  return element;
-}
-
-document.body.appendChild(component());
+ReactDOM.render(<App />, document.getElementById('root'));
