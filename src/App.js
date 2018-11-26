@@ -1,4 +1,6 @@
 import React, { Component} from 'react';
+import Amplify, { Auth } from 'aws-amplify';
+import config from './config';
 
 export default class App extends Component{
   constructor(props) {
@@ -8,6 +10,16 @@ export default class App extends Component{
       username: '',
       password: ''
     };
+
+    Amplify.configure({
+      Auth: {
+        mandatorySignIn: true,
+        region: config.cognito.REGION,
+        userPoolId: config.cognito.USER_POOL_ID,
+        identityPoolId: config.cognito.IDENTITY_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID
+      }
+    });
   }
 
   handleChange = event => {
@@ -16,9 +28,14 @@ export default class App extends Component{
     });
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    alert(JSON.stringify(this.state));
+    try {
+      await Auth.signIn(this.state.username, this.state.password);
+      alert("Logged in");
+    } catch (e) {
+      alert(e.message);
+    }
   }
 
   render() {
