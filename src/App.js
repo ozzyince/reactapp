@@ -1,11 +1,13 @@
 import React, { Component} from 'react';
 
 export default class App extends Component{
-  render(){
+  render() {
     return(
-      <div className='App'>
-        <h1> Hello, World! </h1>
-      </div>
+      <form>
+        <input type="text" name="username" />
+        <input type="password" name="password" />
+        <button type="submit">Login</button>
+      </form>
     );
   }
 }
