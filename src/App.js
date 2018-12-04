@@ -1,7 +1,10 @@
 import React, { Component} from 'react';
+import { Container, Form, Button } from 'react-bootstrap';
 import Amplify, { Auth } from 'aws-amplify';
 import config from './config';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
+import './style.css';
 
 export default class App extends Component{
   constructor(props) {
@@ -41,11 +44,21 @@ export default class App extends Component{
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input id="username" type="text" name="username" value={this.state.username} onChange={this.handleChange} />
-        <input id="password" type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-        <button type="submit">Login</button>
-      </form>
+      <Container>
+        <div className="row h-75 justify-content-center align-items-center">
+          <Form className="login-form" onSubmit={this.handleSubmit}>
+            <Form.Group controlId="username">
+              <Form.Control type="email" placeholder="Enter email" value={this.state.username} onChange={this.handleChange} />
+            </Form.Group>
+            <Form.Group controlId="password">
+              <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+            </Form.Group>
+            <Button className="btn btn-primary block full-width m-b" type="submit" >
+              Login
+            </Button>
+          </Form>
+        </div>
+      </Container>
     );
   }
 }
