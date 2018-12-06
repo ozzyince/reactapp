@@ -44,7 +44,7 @@ export default class App extends Component{
 
   render() {
     return(
-      <Container>
+      <Container fluid="true">
         <div className="row h-75 justify-content-center align-items-center">
           <Form className="login-form" onSubmit={this.handleSubmit}>
             <Form.Group controlId="username">
@@ -53,7 +53,7 @@ export default class App extends Component{
             <Form.Group controlId="password">
               <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
             </Form.Group>
-            <Button className="btn btn-primary block full-width m-b" type="submit" >
+            <Button className="btn btn-primary full-width" type="submit" >
               Login
             </Button>
           </Form>

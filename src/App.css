@@ -1,11 +1,12 @@
-body {
-  background-color: #f3f3f4;
-}
-
-.container {
+.container-fluid {
   height: 100vh;
+  background-color: #f3f3f4;
 }
 
 .login-form {
   width: 300px;
+}
+
+.full-width {
+  width: 100% !important;
 }
